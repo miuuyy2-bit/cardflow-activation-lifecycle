@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://miuuyy2-bit.github.io/cardflow-activation-lifecycle/sitemap.xml

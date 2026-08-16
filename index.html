@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the gift card lifecycle from purchase to activation, redemption and payment approval—without entering a card number or code.">
+  <meta name="theme-color" content="#0b1f33">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Gift Card Activation Explained">
+  <meta property="og:description" content="A source-transparent state map showing what activation proves, what it does not, and who controls each stage.">
+  <meta property="og:url" content="https://miuuyy2-bit.github.io/cardflow-activation-lifecycle/">
+  <title>Gift Card Activation Explained | CardFlow State Map</title>
+  <link rel="canonical" href="https://miuuyy2-bit.github.io/cardflow-activation-lifecycle/">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Gift Card Activation Explained: A State Map",
+    "description": "An issuer-neutral guide to purchase, activation, redemption, balance and payment approval.",
+    "url": "https://miuuyy2-bit.github.io/cardflow-activation-lifecycle/",
+    "datePublished": "2026-08-16",
+    "dateModified": "2026-08-16",
+    "author": {"@type": "Organization", "name": "CardFlow"},
+    "publisher": {"@type": "Organization", "name": "CardFlow"},
+    "isAccessibleForFree": true,
+    "inLanguage": "en"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the guide</a>
+
+  <header class="site-header">
+    <a class="wordmark" href="./" aria-label="CardFlow Activation Lifecycle home">
+      <span class="wordmark-mark" aria-hidden="true">CF</span>
+      <span>CardFlow <small>public knowledge note</small></span>
+    </a>
+    <nav aria-label="Page sections">
+      <a href="#state-map">State map</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#sources">Sources</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="kicker">Issuer-neutral · fact-checked 16 Aug 2026</p>
+        <h1 id="page-title">Activation is a gate.<br><em>Not a warranty.</em></h1>
+        <p class="lede">A gift card can be purchased, activated, redeemed and declined at checkout without those events contradicting one another. This visual guide separates the states so you can ask the right party for the right evidence.</p>
+        <ul class="scope-list" aria-label="Guide boundaries">
+          <li>No card number or code entry</li>
+          <li>No uploads or browser storage</li>
+          <li>No rate, balance or recovery promise</li>
+        </ul>
+      </div>
+
+      <div class="trace-card" aria-label="Simplified gift card lifecycle illustration">
+        <div class="trace-card-top">
+          <span>Lifecycle trace</span>
+          <span class="trace-id">MODEL / 01</span>
+        </div>
+        <ol class="trace-list">
+          <li class="is-complete"><span>01</span><strong>Purchased</strong><small>payment record exists</small></li>
+          <li class="is-active"><span>02</span><strong>Activated</strong><small>enablement accepted</small></li>
+          <li><span>03</span><strong>Redeemed</strong><small>value claimed or used</small></li>
+          <li><span>04</span><strong>Balance</strong><small>value currently shown</small></li>
+          <li><span>05</span><strong>Approved</strong><small>one transaction succeeds</small></li>
+        </ol>
+        <p class="trace-note">Each checkpoint answers a different question.</p>
+      </div>
+    </section>
+
+    <section class="state-section" id="state-map" aria-labelledby="state-map-title">
+      <div class="section-heading">
+        <p class="kicker">Interactive state map</p>
+        <h2 id="state-map-title">Select the state you can actually prove</h2>
+        <p>Use the arrow keys to move across the lifecycle. The panel explains the limit of each signal.</p>
+      </div>
+
+      <div class="state-explorer" data-state-explorer>
+        <div class="state-tabs" role="tablist" aria-label="Gift card lifecycle states">
+          <button id="tab-purchased" role="tab" aria-selected="true" aria-controls="state-panel" tabindex="0" data-state="purchased">
+            <span>01</span>Purchased
+          </button>
+          <button id="tab-activated" role="tab" aria-selected="false" aria-controls="state-panel" tabindex="-1" data-state="activated">
+            <span>02</span>Activated
+          </button>
+          <button id="tab-redeemed" role="tab" aria-selected="false" aria-controls="state-panel" tabindex="-1" data-state="redeemed">
+            <span>03</span>Redeemed
+          </button>
+          <button id="tab-balance" role="tab" aria-selected="false" aria-controls="state-panel" tabindex="-1" data-state="balance">
+            <span>04</span>Balance shown
+          </button>
+          <button id="tab-approved" role="tab" aria-selected="false" aria-controls="state-panel" tabindex="-1" data-state="approved">
+            <span>05</span>Approved
+          </button>
+        </div>
+
+        <article class="state-panel" id="state-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-purchased">
+          <div class="state-panel-lead">
+            <p class="state-code" data-state-code>STATE 01 / PURCHASED</p>
+            <h3 data-state-title>A payment record exists</h3>
+            <p data-state-summary>A receipt or order record can show that a product was paid for. It does not, by itself, prove that the correct identifier was activated or that value remains.</p>
+          </div>
+          <dl class="state-facts">
+            <div><dt>It can support</dt><dd data-state-proves>Retailer, date, amount and transaction context.</dd></div>
+            <div><dt>It cannot prove</dt><dd data-state-limits>Activation success, current balance or code privacy.</dd></div>
+            <div><dt>Who can verify</dt><dd data-state-owner>The retailer or original seller for the purchase record.</dd></div>
+            <div><dt>Keep</dt><dd data-state-evidence>Original receipt, order page or delivery email.</dd></div>
+          </dl>
+        </article>
+      </div>
+
+      <noscript>
+        <p class="noscript-note">JavaScript is off. The complete lifecycle and evidence table remains available below.</p>
+      </noscript>
+    </section>
+
+    <section class="article-grid" aria-labelledby="model-title">
+      <div class="article-intro">
+        <p class="kicker">The mental model</p>
+        <h2 id="model-title">Five signals, five different questions</h2>
+      </div>
+      <div class="article-copy">
+        <p class="standfirst">“Activated” is often used as shorthand for “good card.” That shortcut is the source of the confusion.</p>
+        <p>For many retail products, activation means a system accepted an instruction to enable a particular card or code. The exact path varies. Mastercard notes that many retail prepaid gift cards are activated when purchased, while product-specific activation questions belong with the issuer or the number on the card.</p>
+        <p>Activation therefore sits between the purchase record and later use. It can be valid even when the balance has changed, the account region does not match, a code was already redeemed, or one checkout is declined.</p>
+        <blockquote>
+          <p>Activation proves a checkpoint was reached. It does not certify every checkpoint that follows.</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="evidence-section" id="evidence" aria-labelledby="evidence-title">
+      <div class="section-heading">
+        <p class="kicker">Evidence desk</p>
+        <h2 id="evidence-title">Match the evidence to the system that owns the state</h2>
+      </div>
+
+      <div class="evidence-table-wrap">
+        <table>
+          <thead>
+            <tr><th>Signal</th><th>Best evidence</th><th>Responsible system</th><th>Important limit</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Purchased</th><td>Receipt or original order record</td><td>Retailer / seller</td><td>Payment is not activation</td></tr>
+            <tr><th scope="row">Activated</th><td>Issuer or retailer status tied to the transaction</td><td>Retailer, processor or issuer</td><td>Not a live balance check</td></tr>
+            <tr><th scope="row">Redeemed</th><td>Issuer account history or official support result</td><td>Issuer / destination account</td><td>Do not ask strangers to “test” a code</td></tr>
+            <tr><th scope="row">Balance shown</th><td>Official issuer balance channel</td><td>Issuer</td><td>A future payment can still be declined</td></tr>
+            <tr><th scope="row">Approved</th><td>Completed transaction record</td><td>Merchant + issuer</td><td>One approval does not guarantee the next</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="privacy-note" aria-labelledby="privacy-title">
+        <div class="privacy-icon" aria-hidden="true">••••</div>
+        <div>
+          <p class="kicker">Credential boundary</p>
+          <h3 id="privacy-title">A receipt is a support record, not a password</h3>
+          <p>Keep the original card and receipt. Do not publish a redemption code, PIN, full prepaid-card number, security code or account password. Google Play explicitly warns users not to share redemption codes.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="routing-section" aria-labelledby="routing-title">
+      <div class="section-heading">
+        <p class="kicker">When a message names a state</p>
+        <h2 id="routing-title">Route the question—do not test the credential</h2>
+      </div>
+      <div class="routing-grid">
+        <article>
+          <span class="route-signal">NOT ACTIVATED</span>
+          <h3>Start with the retailer</h3>
+          <p>Apple says a card that was not properly activated might not have been activated by the retailer and directs the customer back to that retailer.</p>
+        </article>
+        <article>
+          <span class="route-signal">ALREADY REDEEMED</span>
+          <h3>Check the issuer account</h3>
+          <p>This is a redemption-history question, not an activation question. Use the issuer's official account and support path.</p>
+        </article>
+        <article>
+          <span class="route-signal">WRONG REGION</span>
+          <h3>Check the product terms</h3>
+          <p>Google Play says its gift cards cannot be redeemed outside the country where they were purchased. Activation does not override that rule.</p>
+        </article>
+        <article>
+          <span class="route-signal">CHECKOUT DECLINED</span>
+          <h3>Check balance and acceptance</h3>
+          <p>A decline happens later in the lifecycle. Confirm the current issuer balance and the exact product's merchant rules.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="sources-section" id="sources" aria-labelledby="sources-title">
+      <div class="section-heading">
+        <p class="kicker">Source transparency</p>
+        <h2 id="sources-title">What each official source supports</h2>
+        <p>Last checked 16 August 2026. Product terms can change; the linked official source controls.</p>
+      </div>
+      <ol class="source-list">
+        <li>
+          <span>Issuer support</span>
+          <a href="https://support.apple.com/en-gb/108285" target="_blank" rel="noopener">Apple: gift card redemption errors</a>
+          <p>Supports the distinction between invalid, already-redeemed, not-activated and country/region messages, plus the retailer route for activation failures.</p>
+        </li>
+        <li>
+          <span>Issuer help</span>
+          <a href="https://support.google.com/googleplay/answer/16585331" target="_blank" rel="noopener">Google Play: buying, sending and receiving gift cards</a>
+          <p>Supports the country-of-purchase restriction and the warning not to share redemption codes.</p>
+        </li>
+        <li>
+          <span>Payment network</span>
+          <a href="https://www.mastercard.us/en-sg/frequently-asked-questions.html" target="_blank" rel="noopener">Mastercard: prepaid gift card FAQ</a>
+          <p>Supports the point that activation paths differ and that many retail prepaid cards are activated at purchase.</p>
+        </li>
+        <li>
+          <span>US regulation</span>
+          <a href="https://www.consumerfinance.gov/rules-policy/regulations/1005/20/" target="_blank" rel="noopener">CFPB: 12 CFR § 1005.20</a>
+          <p>Provides the U.S. regulatory definitions for covered gift certificates, store gift cards and related codes; it is not presented as global law.</p>
+        </li>
+        <li>
+          <span>Consumer protection</span>
+          <a href="https://consumer.ftc.gov/articles/avoiding-and-reporting-gift-card-scams" target="_blank" rel="noopener">FTC: avoiding and reporting gift card scams</a>
+          <p>Supports contacting the gift-card company promptly and reporting suspected scams through ReportFraud.ftc.gov.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="boundary-section" aria-label="Guide limitations">
+      <p class="kicker">Boundary note</p>
+      <p>This page provides general consumer education. It cannot read a card, verify a balance, activate value, identify an owner, promise recovery or determine legal rights. Use the current official terms for the exact product and jurisdiction.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>CardFlow Activation Lifecycle</strong> · An independent public knowledge note</p>
+    <p>No analytics. No cookies. No credential entry.</p>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

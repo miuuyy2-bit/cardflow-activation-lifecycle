@@ -1,0 +1,13 @@
+{
+  "name": "cardflow-activation-lifecycle",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Issuer-neutral, source-transparent gift card activation lifecycle knowledge page.",
+  "scripts": {
+    "test": "node scripts/validate.mjs",
+    "serve": "node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
