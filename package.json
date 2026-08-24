@@ -5,6 +5,7 @@
   "description": "Issuer-neutral, source-transparent gift card activation lifecycle knowledge page.",
   "scripts": {
     "test": "node scripts/validate.mjs",
+    "build": "node scripts/build.mjs",
     "serve": "node scripts/serve.mjs"
   },
   "engines": {

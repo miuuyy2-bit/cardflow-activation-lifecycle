@@ -28,10 +28,7 @@ jobs:
       - name: Validate static site
         run: npm test
       - name: Prepare public artifact
-        run: |
-          mkdir -p _site/assets
-          cp index.html 404.html robots.txt sitemap.xml .nojekyll _site/
-          cp -R assets/. _site/assets/
+        run: npm run build
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload site artifact

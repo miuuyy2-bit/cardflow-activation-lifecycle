@@ -11,6 +11,9 @@ const requiredFiles = [
   "sitemap.xml",
   "assets/styles.css",
   "assets/app.js",
+  "assets/lifecycle-data.js",
+  "assets/lifecycle-explorer.js",
+  "scripts/build.mjs",
   "SOURCE-NOTES.md"
 ];
 
@@ -77,8 +80,12 @@ for (const pattern of forbiddenPatterns) {
 }
 
 const appJs = await readFile(resolve(root, "assets/app.js"), "utf8");
+const lifecycleData = await readFile(resolve(root, "assets/lifecycle-data.js"), "utf8");
+if (!indexHtml.includes('<script type="module" src="assets/app.js"></script>')) errors.push("index.html: module entry script is missing");
+if (!appJs.includes('from "./lifecycle-data.js"')) errors.push("app.js: lifecycle data module is not imported");
+if (!appJs.includes('from "./lifecycle-explorer.js"')) errors.push("app.js: lifecycle explorer module is not imported");
 for (const state of ["purchased", "activated", "redeemed", "balance", "approved"]) {
-  if (!new RegExp(`\\b${state}\\s*:`).test(appJs)) errors.push(`app.js: missing state ${state}`);
+  if (!new RegExp(`\\b${state}\\s*:`).test(lifecycleData)) errors.push(`lifecycle-data.js: missing state ${state}`);
 }
 
 if (errors.length) {
