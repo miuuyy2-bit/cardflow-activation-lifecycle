@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Download the CardFlow gift card activation lifecycle as versioned JSON, JSON Schema and an embeddable SVG reference map.">
+  <meta name="theme-color" content="#0b1f33">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Open Gift Card Activation Lifecycle Dataset">
+  <meta property="og:description" content="Five issuer-neutral states, explicit evidence limits, a validation schema and a reusable lifecycle diagram.">
+  <meta property="og:url" content="https://miuuyy2-bit.github.io/cardflow-activation-lifecycle/reference.html">
+  <title>Open Gift Card Activation Lifecycle Dataset | CardFlow</title>
+  <link rel="canonical" href="https://miuuyy2-bit.github.io/cardflow-activation-lifecycle/reference.html">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "CardFlow Gift Card Activation Lifecycle Dataset",
+    "description": "An issuer-neutral five-state model separating purchase, activation, redemption, balance reporting and transaction approval.",
+    "url": "https://miuuyy2-bit.github.io/cardflow-activation-lifecycle/reference.html",
+    "version": "1.0.0",
+    "dateModified": "2026-08-31",
+    "creator": {"@type": "Organization", "name": "CardFlow"},
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "isAccessibleForFree": true,
+    "inLanguage": "en",
+    "distribution": [
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://miuuyy2-bit.github.io/cardflow-activation-lifecycle/data/lifecycle-states.json"
+      },
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "application/schema+json",
+        "contentUrl": "https://miuuyy2-bit.github.io/cardflow-activation-lifecycle/schema/lifecycle-dataset.schema.json"
+      },
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "image/svg+xml",
+        "contentUrl": "https://miuuyy2-bit.github.io/cardflow-activation-lifecycle/assets/lifecycle-map.svg"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the open reference</a>
+
+  <header class="site-header">
+    <a class="wordmark" href="./" aria-label="CardFlow Activation Lifecycle home">
+      <span class="wordmark-mark" aria-hidden="true">CF</span>
+      <span>CardFlow <small>open lifecycle reference</small></span>
+    </a>
+    <nav aria-label="Page sections">
+      <a href="./">Guide</a>
+      <a href="#specification">Specification</a>
+      <a href="#downloads">Downloads</a>
+      <a href="#citation">Cite</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="reference-hero" aria-labelledby="reference-title">
+      <div class="reference-hero-copy">
+        <p class="kicker">Open reference · version 1.0.0</p>
+        <h1 id="reference-title">The lifecycle,<br><em>as data.</em></h1>
+        <p class="lede">A small, issuer-neutral dataset for researchers, writers and developers who need to distinguish purchase, activation, redemption, balance and payment approval without handling a live gift-card credential.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="data/lifecycle-states.json" download>Download JSON</a>
+          <a class="button button-secondary" href="schema/lifecycle-dataset.schema.json">View JSON Schema</a>
+        </div>
+        <dl class="reference-stats" aria-label="Dataset summary">
+          <div><dt>States</dt><dd>5</dd></div>
+          <div><dt>Credentials collected</dt><dd>0</dd></div>
+          <div><dt>License</dt><dd>CC BY 4.0</dd></div>
+        </dl>
+      </div>
+      <figure class="reference-figure">
+        <img src="assets/lifecycle-map.svg" alt="Five-state lifecycle from purchase through transaction approval">
+        <figcaption>SVG / 1200 × 660 / accessible title and description included</figcaption>
+      </figure>
+    </section>
+
+    <section class="method-strip" aria-label="Dataset method">
+      <p><span>Editorial model</span> The five states are a reasoning framework, not a universal issuer protocol.</p>
+      <p><span>Source boundary</span> Every linked source supports only the claim described in the dataset.</p>
+      <p><span>Privacy boundary</span> No card number, PIN, claim code, receipt or account credential is accepted.</p>
+    </section>
+
+    <section class="specification-section" id="specification" aria-labelledby="specification-title">
+      <div class="section-heading">
+        <p class="kicker">Machine-readable specification</p>
+        <h2 id="specification-title">One record per checkpoint</h2>
+        <p>Each state names its question, evidence boundary, responsible systems and safety note. Source IDs connect individual records to the official references that support them.</p>
+      </div>
+
+      <div class="spec-layout">
+        <div class="schema-rail" aria-label="Lifecycle field groups">
+          <article>
+            <span>Identity</span>
+            <h3><code>id</code> + <code>position</code></h3>
+            <p>Stable keys preserve the order of the simplified lifecycle.</p>
+          </article>
+          <article>
+            <span>Meaning</span>
+            <h3><code>checkpoint</code> + <code>definition</code></h3>
+            <p>The exact question answered at this state.</p>
+          </article>
+          <article>
+            <span>Evidence boundary</span>
+            <h3><code>canSupport</code> + <code>cannotProve</code></h3>
+            <p>Positive evidence and explicit limits stay side by side.</p>
+          </article>
+          <article>
+            <span>Routing</span>
+            <h3><code>primaryOwner</code> + <code>usefulEvidence</code></h3>
+            <p>Names the system that can verify the state and the records worth keeping.</p>
+          </article>
+        </div>
+
+        <div class="code-sample">
+          <div class="code-sample-head">
+            <span>data/lifecycle-states.json</span>
+            <span>STATE 02</span>
+          </div>
+          <pre><code>{
+  "id": "activated",
+  "position": 2,
+  "checkpoint": "Did an enablement checkpoint succeed?",
+  "canSupport": [
+    "An activation checkpoint was reached"
+  ],
+  "cannotProve": [
+    "Current balance",
+    "Region compatibility",
+    "Future transaction approval"
+  ],
+  "primaryOwner": [
+    "Retailer",
+    "Processor",
+    "Issuer"
+  ]
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="downloads-section" id="downloads" aria-labelledby="downloads-title">
+      <div class="section-heading">
+        <p class="kicker">Reusable artifacts</p>
+        <h2 id="downloads-title">Use the format that fits the work</h2>
+      </div>
+      <div class="download-grid">
+        <a class="download-card" href="data/lifecycle-states.json" download>
+          <span class="file-type">JSON</span>
+          <h3>Lifecycle dataset</h3>
+          <p>Five state records, source registry, version and privacy boundary.</p>
+          <strong>Download data <span aria-hidden="true">↓</span></strong>
+        </a>
+        <a class="download-card" href="schema/lifecycle-dataset.schema.json">
+          <span class="file-type">SCHEMA</span>
+          <h3>Validation contract</h3>
+          <p>JSON Schema 2020-12 with required fields, enums and value constraints.</p>
+          <strong>Open schema <span aria-hidden="true">↗</span></strong>
+        </a>
+        <a class="download-card" href="assets/lifecycle-map.svg" download>
+          <span class="file-type">SVG</span>
+          <h3>Lifecycle map</h3>
+          <p>Accessible 1200 × 660 vector artwork for source-linked explainers.</p>
+          <strong>Download image <span aria-hidden="true">↓</span></strong>
+        </a>
+        <a class="download-card" href="CITATION.cff" download>
+          <span class="file-type">CFF</span>
+          <h3>Citation metadata</h3>
+          <p>Versioned project metadata for reference managers and repositories.</p>
+          <strong>Download citation <span aria-hidden="true">↓</span></strong>
+        </a>
+      </div>
+    </section>
+
+    <section class="citation-section" id="citation" aria-labelledby="citation-title">
+      <div>
+        <p class="kicker">Suggested citation</p>
+        <h2 id="citation-title">Credit the reference, not a keyword</h2>
+        <p>Attribution is required by the data license. A backlink is welcome but is not required as a condition for unrelated use, ranking or promotion.</p>
+      </div>
+      <div class="citation-box">
+        <p data-citation-text>CardFlow Editorial Team (2026). CardFlow Gift Card Activation Lifecycle Dataset (Version 1.0.0). https://miuuyy2-bit.github.io/cardflow-activation-lifecycle/reference.html</p>
+        <button type="button" class="button button-primary" data-copy-citation>Copy citation</button>
+        <span class="visually-hidden" role="status" aria-live="polite" data-copy-status></span>
+      </div>
+    </section>
+
+    <section class="reuse-section" aria-labelledby="reuse-title">
+      <div class="section-heading">
+        <p class="kicker">Reuse notes</p>
+        <h2 id="reuse-title">What this resource can—and cannot—do</h2>
+      </div>
+      <div class="reuse-grid">
+        <article>
+          <h3>Good uses</h3>
+          <ul>
+            <li>Annotate an educational article or support workflow.</li>
+            <li>Validate a compatible lifecycle dataset.</li>
+            <li>Embed the SVG with accessible alternative text.</li>
+            <li>Compare evidence claims without testing a live code.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Outside the model</h3>
+          <ul>
+            <li>Determining whether an individual card is valid.</li>
+            <li>Checking balance, rate, ownership or acceptance.</li>
+            <li>Replacing current issuer terms or support.</li>
+            <li>Making a recovery, refund or transaction promise.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="reference-sources" aria-labelledby="reference-sources-title">
+      <div class="section-heading">
+        <p class="kicker">Source register</p>
+        <h2 id="reference-sources-title">Claims stay attached to their limits</h2>
+        <p>Apple Support, Google Play Help and the CFPB source were rechecked on 31 August 2026. Mastercard was last checked on 16 August 2026.</p>
+      </div>
+      <p>Read the human-readable <a href="./#sources">source notes in the lifecycle guide</a> or inspect the complete source registry in the <a href="data/lifecycle-states.json">JSON dataset</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>CardFlow Activation Lifecycle</strong> · Open reference v1.0.0</p>
+    <p><a href="https://giftcardapp.ng/">CardFlow website</a> · No analytics · No credential entry</p>
+  </footer>
+
+  <script type="module" src="assets/reference.js"></script>
+</body>
+</html>

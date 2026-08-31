@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use the dataset, schema or lifecycle map, please cite this project."
+title: "CardFlow Gift Card Activation Lifecycle Dataset"
+type: dataset
+version: 1.0.0
+date-released: 2026-08-31
+authors:
+  - name: "CardFlow Editorial Team"
+license: CC-BY-4.0
+repository-code: "https://github.com/miuuyy2-bit/cardflow-activation-lifecycle"
+url: "https://miuuyy2-bit.github.io/cardflow-activation-lifecycle/reference.html"
+abstract: "An issuer-neutral five-state model separating purchase, activation, redemption, balance reporting and transaction approval, with explicit evidence and privacy boundaries."
+keywords:
+  - gift cards
+  - activation lifecycle
+  - evidence model
+  - consumer education
+  - open data
