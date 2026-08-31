@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
+  <title id="title">Five-state gift card activation lifecycle</title>
+  <desc id="desc">A left-to-right map of Purchased, Activated, Redeemed, Balance shown and Transaction approved. Each state answers a different question.</desc>
+  <rect width="1200" height="660" fill="#0b1f33"/>
+  <path d="M120 330H1080" stroke="#536b82" stroke-width="4" stroke-dasharray="10 14"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="76" y="80" fill="#8fb0ff" font-size="22" font-weight="700" letter-spacing="3">CARDFLOW OPEN REFERENCE / V1.0.0</text>
+    <text x="76" y="132" fill="#ffffff" font-size="38" font-weight="750">One credential. Five separate checkpoints.</text>
+    <text x="76" y="172" fill="#b8c6d5" font-size="21">A later state does not rewrite the evidence boundary of an earlier one.</text>
+    <g text-anchor="middle">
+      <g transform="translate(120 330)">
+        <circle r="48" fill="#59d2a2"/>
+        <text y="8" fill="#0b1f33" font-size="24" font-weight="800">01</text>
+        <text y="88" fill="#ffffff" font-size="22" font-weight="700">PURCHASED</text>
+        <text y="120" fill="#9fb1c2" font-size="17">payment record?</text>
+      </g>
+      <g transform="translate(360 330)">
+        <circle r="48" fill="#df542f"/>
+        <circle r="61" fill="none" stroke="#df542f" stroke-width="3" opacity=".38"/>
+        <text y="8" fill="#ffffff" font-size="24" font-weight="800">02</text>
+        <text y="88" fill="#ffffff" font-size="22" font-weight="700">ACTIVATED</text>
+        <text y="120" fill="#9fb1c2" font-size="17">enablement accepted?</text>
+      </g>
+      <g transform="translate(600 330)">
+        <circle r="48" fill="#2457d6"/>
+        <text y="8" fill="#ffffff" font-size="24" font-weight="800">03</text>
+        <text y="88" fill="#ffffff" font-size="22" font-weight="700">REDEEMED</text>
+        <text y="120" fill="#9fb1c2" font-size="17">value claimed?</text>
+      </g>
+      <g transform="translate(840 330)">
+        <circle r="48" fill="#233b52" stroke="#7690a8" stroke-width="3"/>
+        <text y="8" fill="#ffffff" font-size="24" font-weight="800">04</text>
+        <text y="88" fill="#ffffff" font-size="22" font-weight="700">BALANCE SHOWN</text>
+        <text y="120" fill="#9fb1c2" font-size="17">value at one time?</text>
+      </g>
+      <g transform="translate(1080 330)">
+        <circle r="48" fill="#233b52" stroke="#7690a8" stroke-width="3"/>
+        <text y="8" fill="#ffffff" font-size="24" font-weight="800">05</text>
+        <text y="88" fill="#ffffff" font-size="22" font-weight="700">APPROVED</text>
+        <text y="120" fill="#9fb1c2" font-size="17">one payment?</text>
+      </g>
+    </g>
+    <g transform="translate(76 550)">
+      <rect width="1048" height="52" rx="8" fill="#132c44"/>
+      <text x="22" y="34" fill="#dce6ef" font-size="18">PRIVACY BOUNDARY</text>
+      <text x="230" y="34" fill="#8fa5b9" font-size="18">No card number · no PIN · no claim code · no receipt upload</text>
+    </g>
+  </g>
+</svg>
