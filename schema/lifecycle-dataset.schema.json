@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://miuuyy2-bit.github.io/cardflow-activation-lifecycle/schema/lifecycle-dataset.schema.json",
+  "title": "CardFlow Gift Card Activation Lifecycle Dataset",
+  "description": "Schema for the issuer-neutral CardFlow lifecycle reference dataset.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "title",
+    "version",
+    "updated",
+    "language",
+    "license",
+    "projectUrl",
+    "scope",
+    "privacyBoundary",
+    "states",
+    "sources"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "title": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "updated": { "type": "string", "format": "date" },
+    "language": { "type": "string", "const": "en" },
+    "license": { "type": "string", "const": "CC-BY-4.0" },
+    "projectUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
+    "scope": { "type": "string", "minLength": 40 },
+    "privacyBoundary": { "type": "string", "minLength": 40 },
+    "states": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": { "$ref": "#/$defs/state" }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/source" }
+    }
+  },
+  "$defs": {
+    "nonEmptyStrings": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "position",
+        "label",
+        "checkpoint",
+        "definition",
+        "canSupport",
+        "cannotProve",
+        "primaryOwner",
+        "usefulEvidence",
+        "safetyNote",
+        "sourceIds"
+      ],
+      "properties": {
+        "id": { "type": "string", "enum": ["purchased", "activated", "redeemed", "balance", "approved"] },
+        "position": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "label": { "type": "string", "minLength": 1 },
+        "checkpoint": { "type": "string", "minLength": 10 },
+        "definition": { "type": "string", "minLength": 20 },
+        "canSupport": { "$ref": "#/$defs/nonEmptyStrings" },
+        "cannotProve": { "$ref": "#/$defs/nonEmptyStrings" },
+        "primaryOwner": { "$ref": "#/$defs/nonEmptyStrings" },
+        "usefulEvidence": { "$ref": "#/$defs/nonEmptyStrings" },
+        "safetyNote": { "type": "string", "minLength": 20 },
+        "sourceIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "publisher", "title", "url", "supports", "checked"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "publisher": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "supports": { "type": "string", "minLength": 20 },
+        "checked": { "type": "string", "format": "date" }
+      }
+    }
+  }
+}
