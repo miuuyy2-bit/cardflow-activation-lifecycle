@@ -1,0 +1,191 @@
+{
+  "$schema": "../schema/lifecycle-dataset.schema.json",
+  "title": "CardFlow Gift Card Activation Lifecycle Dataset",
+  "version": "1.0.0",
+  "updated": "2026-08-31",
+  "language": "en",
+  "license": "CC-BY-4.0",
+  "projectUrl": "https://miuuyy2-bit.github.io/cardflow-activation-lifecycle/reference.html",
+  "scope": "An issuer-neutral editorial model that separates purchase, activation, redemption, balance reporting and transaction approval. It does not determine the status of any individual gift card.",
+  "privacyBoundary": "The dataset never accepts, stores or processes card numbers, PINs, claim codes, receipts or account credentials.",
+  "states": [
+    {
+      "id": "purchased",
+      "position": 1,
+      "label": "Purchased",
+      "checkpoint": "Does a purchase record exist?",
+      "definition": "A retailer or order record indicates that a product was paid for.",
+      "canSupport": [
+        "Retailer or seller identity",
+        "Purchase date and amount",
+        "Transaction context"
+      ],
+      "cannotProve": [
+        "Activation success",
+        "Current balance",
+        "Code privacy or lawful ownership"
+      ],
+      "primaryOwner": [
+        "Retailer",
+        "Original seller"
+      ],
+      "usefulEvidence": [
+        "Original receipt",
+        "Order record",
+        "Delivery email"
+      ],
+      "safetyNote": "Redact unrelated personal details and keep all redeemable credentials private.",
+      "sourceIds": [
+        "cfpb-1005-20"
+      ]
+    },
+    {
+      "id": "activated",
+      "position": 2,
+      "label": "Activated",
+      "checkpoint": "Did an enablement checkpoint succeed?",
+      "definition": "The relevant system accepted an instruction to enable the card or code; the exact mechanism varies by product and sales channel.",
+      "canSupport": [
+        "An activation checkpoint was reached",
+        "A transaction may be traceable by the retailer or issuer"
+      ],
+      "cannotProve": [
+        "Current balance",
+        "Region compatibility",
+        "Future transaction approval"
+      ],
+      "primaryOwner": [
+        "Retailer",
+        "Processor",
+        "Issuer"
+      ],
+      "usefulEvidence": [
+        "Transaction-linked activation record",
+        "Original card or delivery record"
+      ],
+      "safetyNote": "Use the retailer or issuer named by the product; do not ask a stranger to test a credential.",
+      "sourceIds": [
+        "apple-redemption-errors",
+        "mastercard-prepaid-faq"
+      ]
+    },
+    {
+      "id": "redeemed",
+      "position": 3,
+      "label": "Redeemed",
+      "checkpoint": "Was value claimed or used?",
+      "definition": "A later value-use event was recorded, either into an account or directly with a merchant, depending on the product.",
+      "canSupport": [
+        "A redemption event occurred",
+        "The destination account or merchant may hold relevant history"
+      ],
+      "cannotProve": [
+        "Who used the credential",
+        "Lawful ownership",
+        "What value remains in another system"
+      ],
+      "primaryOwner": [
+        "Issuer",
+        "Destination account",
+        "Merchant"
+      ],
+      "usefulEvidence": [
+        "Official account history",
+        "Issuer support result",
+        "Redemption confirmation"
+      ],
+      "safetyNote": "Never publish or forward an unused code to obtain an informal redemption test.",
+      "sourceIds": [
+        "apple-redemption-errors",
+        "google-play-gift-cards"
+      ]
+    },
+    {
+      "id": "balance",
+      "position": 4,
+      "label": "Balance shown",
+      "checkpoint": "What value did the issuer report at a specific time?",
+      "definition": "An official issuer channel reported a time-specific value.",
+      "canSupport": [
+        "Issuer-reported value at the check time",
+        "A more recent status than a purchase or activation record"
+      ],
+      "cannotProve": [
+        "Future transaction approval",
+        "Merchant acceptance",
+        "Absence of later activity"
+      ],
+      "primaryOwner": [
+        "Issuer"
+      ],
+      "usefulEvidence": [
+        "Private time-stamped issuer result",
+        "Issuer account balance history"
+      ],
+      "safetyNote": "Check only through the issuer's official channel and keep the credential hidden.",
+      "sourceIds": [
+        "google-play-gift-cards"
+      ]
+    },
+    {
+      "id": "approved",
+      "position": 5,
+      "label": "Transaction approved",
+      "checkpoint": "Did one transaction complete?",
+      "definition": "A specific purchase was accepted under one set of merchant, balance and authorization conditions.",
+      "canSupport": [
+        "That specific transaction was accepted",
+        "The merchant and issuer completed one authorization path"
+      ],
+      "cannotProve": [
+        "Remaining balance",
+        "Success of a different transaction",
+        "Future merchant acceptance"
+      ],
+      "primaryOwner": [
+        "Merchant",
+        "Issuer"
+      ],
+      "usefulEvidence": [
+        "Completed transaction record",
+        "Updated issuer balance"
+      ],
+      "safetyNote": "Share only the minimum transaction context required by official support.",
+      "sourceIds": []
+    }
+  ],
+  "sources": [
+    {
+      "id": "apple-redemption-errors",
+      "publisher": "Apple Support",
+      "title": "If you can't redeem your Apple Gift Card, App Store Card or App Store & iTunes Gift Card",
+      "url": "https://support.apple.com/en-gb/108285",
+      "supports": "Distinguishes invalid, already-redeemed, not-activated and country or region messages, and directs a not-activated case back to the retailer.",
+      "checked": "2026-08-31"
+    },
+    {
+      "id": "google-play-gift-cards",
+      "publisher": "Google Play Help",
+      "title": "Buy, send and receive gifted gift cards on Google Play",
+      "url": "https://support.google.com/googleplay/answer/16585331",
+      "supports": "Warns users not to share redemption codes and describes issuer-specific balance and redemption support paths.",
+      "checked": "2026-08-31"
+    },
+    {
+      "id": "mastercard-prepaid-faq",
+      "publisher": "Mastercard",
+      "title": "Prepaid gift card frequently asked questions",
+      "url": "https://www.mastercard.us/en-sg/frequently-asked-questions.html",
+      "supports": "Provides network-level context that activation paths vary and product-specific questions belong with the issuer or card support channel.",
+      "checked": "2026-08-16"
+    },
+    {
+      "id": "cfpb-1005-20",
+      "publisher": "Consumer Financial Protection Bureau",
+      "title": "12 CFR 1005.20 — Requirements for gift cards and gift certificates",
+      "url": "https://www.consumerfinance.gov/rules-policy/regulations/1005/20/",
+      "supports": "Provides U.S. regulatory definitions for covered gift certificates, store gift cards and related cards, codes or devices.",
+      "checked": "2026-08-31"
+    }
+  ]
+}
